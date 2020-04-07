@@ -1,6 +1,6 @@
 # Servlet_3
 
-##기능 
+## 기능 
 - point list 출력
 - point 등록
 - point 상세 정보 출력
