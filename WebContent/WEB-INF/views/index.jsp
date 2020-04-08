@@ -17,7 +17,7 @@
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#">WebSiteName</a>
+				<a class="navbar-brand" href="${pageContext.request.contextPath }">Point Project</a>
 			</div>
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="#">Home</a></li>
@@ -28,7 +28,7 @@
 						<li><a href="#">Page 1-2</a></li>
 						<li><a href="#">Page 1-3</a></li>
 					</ul></li>
-				<li><a href="#">Page 2</a></li>
+				<li><a href="${pageContext.request.contextPath }/point/pointList">Point</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="#"><span class="glyphicon glyphicon-user"></span>
@@ -39,15 +39,11 @@
 		</div>
 	</nav>
 
-	<div class="container">
-		<h3>Right Aligned Navbar</h3>
-		<p>The .navbar-right class is used to right-align navigation bar
-			buttons.</p>
-	</div>
+
 
 	<div class="container">
 		<div class="jumbotron">
-			<h1>Bootstrap Tutorial</h1>
+			<h1>Index page</h1>
 			<p>Bootstrap is the most popular HTML, CSS, and JS framework for
 				developing responsive, mobile-first projects on the web.</p>
 		</div>
@@ -56,7 +52,6 @@
 	</div>
 
 	<!-- 	 . -->
-	<h1>Add Branch</h1>
 
 </body>
 </html>

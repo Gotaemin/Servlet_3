@@ -1,6 +1,8 @@
 package com.google.point;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,17 +29,42 @@ public class PointController extends HttpServlet {
 		String path = "";  //url경로
 		
 		if(command.equals("/pointList")) {
-			System.out.println("pointList");
+			//System.out.println("pointList");
+			path = "../WEB-INF/views/point/pointList.jsp";
+			
 		}else if(command.equals("/pointAdd")) {
-			System.out.println("pointAdd");
+			//System.out.println("pointAdd");
+			if(method.equals("POST")) {
+				//Service로 이동 (DB insert)
+			}else {
+				path = "../WEB-INF/views/point/pointAdd.jsp";
+			}
+			
 		}else if(command.equals("/pointSelect")) {
-			System.out.println("pointSelect");
+			//System.out.println("pointSelect");
+			path = "../WEB-INF/views/point/pointSelect.jsp";
+			
 		}else if(command.equals("/pointMod")) {
-			System.out.println("pointMod");
+			//System.out.println("pointMod");
+			if(method.equals("POST")) {
+				//Service로 이동(DB Update)
+			}else {
+				path = "../WEB-INF/views/point/pointMod.jsp";
+			}
+			
 		}else if(command.equals("/pointDelete")) {
-			System.out.println("pointDelete");
+			//System.out.println("pointDelete");
+			//Service로 이동(DB Delete)
 		}else {
-			System.out.println("etc");
+			//System.out.println("etc");
+		}
+		
+		
+		if(check) {
+			RequestDispatcher dispatcher = request.getRequestDispatcher(path);
+			dispatcher.forward(request, response);
+		}else {
+			response.sendRedirect(path);
 		}
 		
 	}
