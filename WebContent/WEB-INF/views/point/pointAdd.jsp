@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,11 +14,12 @@
 </head>
 <body>
 
-<!-- 	BootStrapAPI_nav  -------------------------------------------------->
+	<!-- 	BootStrapAPI_nav  -------------------------------------------------->
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="${pageContext.request.contextPath }">Point Project</a>
+				<a class="navbar-brand" href="${pageContext.request.contextPath }">Point
+					Project</a>
 			</div>
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="#">Home</a></li>
@@ -29,7 +30,8 @@
 						<li><a href="#">Page 1-2</a></li>
 						<li><a href="#">Page 1-3</a></li>
 					</ul></li>
-				<li><a href="${pageContext.request.contextPath }/point/pointList">Point</a></li>
+				<li><a
+					href="${pageContext.request.contextPath }/point/pointList">Point</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="#"><span class="glyphicon glyphicon-user"></span>
@@ -48,8 +50,52 @@
 			<p>Bootstrap is the most popular HTML, CSS, and JS framework for
 				developing responsive, mobile-first projects on the web.</p>
 		</div>
-		<p>This is some text.</p>
-		<p>This is another text.</p>
+		<form class="form-horizontal" action="./pointAdd" method="post">
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="name">name:</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" id="name"
+					placeholder="Enter name" name="name">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="num">num:</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" id="num"
+					placeholder="Enter num" name="num">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="kor">kor:</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" id="kor"
+					placeholder="Enter kor" name="kor">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="eng">eng:</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" id="eng"
+					placeholder="Enter eng" name="eng">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="math">math:</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" id="math"
+					placeholder="Enter math" name="math">
+			</div>
+		</div>
+		
+		
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<button type="submit" class="btn btn-default">Submit</button>
+			</div>
+		</div>
+	</form>
 	</div>
+
+	
 </body>
 </html>

@@ -47,6 +47,30 @@ public class PointController extends HttpServlet {
 				// System.out.println("pointAdd");
 				if (method.equals("POST")) {
 					// Service로 이동 (DB insert)
+					
+					String name = request.getParameter("name");
+					int num = Integer.parseInt(request.getParameter("num"));
+					int kor = Integer.parseInt(request.getParameter("kor"));
+					int eng = Integer.parseInt(request.getParameter("eng"));
+					int math = Integer.parseInt(request.getParameter("math"));
+					
+					PointDTO pointDTO = new PointDTO();
+					
+					pointDTO.setName(name);
+					pointDTO.setNum(num);
+					pointDTO.setKor(kor);
+					pointDTO.setEng(eng);
+					pointDTO.setMath(math);
+					
+					int result = pointService.pointInsert(pointDTO);
+				
+					if(result > 0) {
+						check = false;
+						path = "./pointList";
+					}else {
+						
+					}
+					
 				} else {
 					path = "../WEB-INF/views/point/pointAdd.jsp";
 				}

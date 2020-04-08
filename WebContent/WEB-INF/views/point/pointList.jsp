@@ -77,11 +77,9 @@ a, a:hover {
 						</tr>
 					</c:forEach>
 				</tbody>
+				
 			</table>
-
-
-
-			<%-- 			<h1>${requestScope.pointList[0].name}</h1> --%>
+			<a href="./pointAdd" class="btn btn-primary" style="float: right">Write</a>
 		</div>
 	</div>
 

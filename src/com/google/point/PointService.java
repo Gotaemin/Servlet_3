@@ -29,4 +29,13 @@ public class PointService {
 		return pointDAO.pointDelete(num);
 	}
 	
+	public int pointInsert(PointDTO pointDTO) throws Exception{
+		pointDTO.setSum(pointDTO.getKor() + pointDTO.getEng() + pointDTO.getMath());
+		pointDTO.setAvg(pointDTO.getSum()/3.0);
+		
+		int result = pointDAO.pointInsert(pointDTO);
+		
+		return result;
+	}
+	
 }
