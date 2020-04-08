@@ -24,4 +24,9 @@ public class PointService {
 		return pointDTO;
 	}
 	
+	public int pointDelete(int num) throws Exception{
+		
+		return pointDAO.pointDelete(num);
+	}
+	
 }

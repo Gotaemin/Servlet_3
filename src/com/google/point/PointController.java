@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/PointController")
 public class PointController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private PointService pointService = null;
+	private PointService pointService = null;	
 	ArrayList<PointDTO> pointList = null;
 
 	public PointController() {
@@ -72,6 +72,14 @@ public class PointController extends HttpServlet {
 			} else if (command.equals("/pointDelete")) {
 				// System.out.println("pointDelete");
 				// Service로 이동(DB Delete)
+				int num = Integer.parseInt(request.getParameter("num"));
+				
+				int result = pointService.pointDelete(num);
+				if(result > 0 ) {
+					check = false;
+					path = "./pointList";
+				}
+				
 			} else {
 				// System.out.println("etc");
 			}

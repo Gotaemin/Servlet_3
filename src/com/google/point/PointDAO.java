@@ -5,8 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-import javax.websocket.PongMessage;
-
 import com.google.util.DBConnect;
 
 public class PointDAO {
@@ -80,5 +78,46 @@ public class PointDAO {
 	//insert
 	//update
 	//delete
+	public int pointDelete(int num) throws Exception {
+		PreparedStatement pstmt = null;
+		
+		Connection conn = DBConnect.getConnection();
+		
+		String sql = "delete from point where num = ?";
+		
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setInt(1, num);
+		
+		int result = pstmt.executeUpdate();
+		
+		pstmt.close();
+		conn.close();
+		
+		return result;
+	}
+	
+	
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -45,13 +45,35 @@
 	<div class="container">
 		<div class="jumbotron">
 			<h1>Point Select Page</h1>
-			<h3>이름 : ${pointSelect.name}</h3>
-			<h3>번호 : ${pointSelect.num}</h3>
-			<h3>국어 : ${pointSelect.kor}</h3>
-			<h3>영어 : ${pointSelect.eng}</h3>
-			<h3>수학 : ${pointSelect.math}</h3>
-			<h3>총점 : ${pointSelect.sum}</h3>
-			<h3>평균 : ${pointSelect.avg}</h3>
+		</div>
+		
+		<div class="row">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>번호</th>
+						<th>이름</th>
+						<th>국어</th>
+						<th>영어</th>
+						<th>수학</th>
+						<th>총점</th>
+						<th>평균</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>${pointSelect.num}</td>
+						<td>${pointSelect.name}</td>
+						<td>${pointSelect.kor}</td>
+						<td> ${pointSelect.eng}</td>
+						<td>${pointSelect.math}</td>
+						<td>${pointSelect.sum}</td>
+						<td>${pointSelect.avg}</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			<a href="./pointDelete?num=${pointSelect.num}" class="btn btn-primary" style="float: right">Delete</a>
 		</div>
 	</div>
 

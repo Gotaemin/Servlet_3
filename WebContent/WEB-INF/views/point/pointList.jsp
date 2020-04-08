@@ -12,6 +12,12 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<style type="text/css">
+a, a:hover {
+	color: black;
+}
+</style>
 <title>Insert title here</title>
 </head>
 <body>
@@ -73,7 +79,7 @@
 				</tbody>
 			</table>
 
-			
+
 
 			<%-- 			<h1>${requestScope.pointList[0].name}</h1> --%>
 		</div>
