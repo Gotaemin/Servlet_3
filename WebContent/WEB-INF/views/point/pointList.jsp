@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,10 +15,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-<nav class="navbar navbar-inverse">
+	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="${pageContext.request.contextPath }">Point Project</a>
+				<a class="navbar-brand" href="${pageContext.request.contextPath }">Point
+					Project</a>
 			</div>
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="#">Home</a></li>
@@ -27,7 +30,8 @@
 						<li><a href="#">Page 1-2</a></li>
 						<li><a href="#">Page 1-3</a></li>
 					</ul></li>
-				<li><a href="${pageContext.request.contextPath }/point/pointList">Point</a></li>
+				<li><a
+					href="${pageContext.request.contextPath }/point/pointList">Point</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="#"><span class="glyphicon glyphicon-user"></span>
@@ -45,9 +49,39 @@
 			<p>Bootstrap is the most popular HTML, CSS, and JS framework for
 				developing responsive, mobile-first projects on the web.</p>
 		</div>
-		<p>This is some text.</p>
-		<p>This is another text.</p>
 	</div>
+
+
+	<div class="container">
+		<div class="row">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>번호</th>
+						<th>이름</th>
+						<th>평균</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach var="list" items="${pointList}">
+						<tr>
+							<td>${list.num}</td>
+							<td><a href="./pointSelect">${list.name}</a></td>
+							<td>${list.avg}</td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+
+
+
+			<%-- 			<h1>${requestScope.pointList[0].name}</h1> --%>
+		</div>
+	</div>
+
+
+
+
 
 </body>
 </html>

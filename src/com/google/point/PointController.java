@@ -1,6 +1,7 @@
 package com.google.point;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,9 +13,13 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/PointController")
 public class PointController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	private PointService pointService = null;
+    ArrayList<PointDTO> pointList = null;
+    
     public PointController() {
         super();
+        pointService = new PointService();
+        pointList = new ArrayList<PointDTO>();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -30,6 +35,14 @@ public class PointController extends HttpServlet {
 		
 		if(command.equals("/pointList")) {
 			//System.out.println("pointList");
+			try {
+				pointList = pointService.pointList();
+				request.setAttribute("pointList", pointList);
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
 			path = "../WEB-INF/views/point/pointList.jsp";
 			
 		}else if(command.equals("/pointAdd")) {
