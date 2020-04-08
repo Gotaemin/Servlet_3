@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import javax.websocket.PongMessage;
+
 import com.google.util.DBConnect;
 
 public class PointDAO {
@@ -43,6 +45,38 @@ public class PointDAO {
 	}
 	
 	//select one
+	public PointDTO pointSelect(int num) throws Exception{
+		PointDTO pointDTO = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		Connection conn = DBConnect.getConnection();
+		
+		String sql = "select * from point where num = ?";
+		
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setInt(1, num);
+		rs = pstmt.executeQuery();
+		
+		if(rs.next()) {
+			pointDTO = new PointDTO();
+			pointDTO.setName(rs.getString(1));
+			pointDTO.setNum(rs.getInt(2));
+			pointDTO.setKor(rs.getInt(3));
+			pointDTO.setEng(rs.getInt(4));
+			pointDTO.setMath(rs.getInt(5));
+			pointDTO.setSum(rs.getInt(6));
+			pointDTO.setAvg(rs.getDouble(7));
+		}
+	
+		rs.close();
+		pstmt.close();
+		conn.close();
+		
+		return pointDTO;
+	}
+	
+	
 	//insert
 	//update
 	//delete

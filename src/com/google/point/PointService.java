@@ -17,4 +17,11 @@ public class PointService {
 		return pointList;
 	}
 	
+	
+	public PointDTO pointSelect(int num) throws Exception{
+		PointDTO pointDTO  = pointDAO.pointSelect(num);
+		
+		return pointDTO;
+	}
+	
 }

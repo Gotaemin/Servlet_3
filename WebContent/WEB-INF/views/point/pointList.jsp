@@ -66,14 +66,14 @@
 					<c:forEach var="list" items="${pointList}">
 						<tr>
 							<td>${list.num}</td>
-							<td><a href="./pointSelect">${list.name}</a></td>
+							<td><a href="./pointSelect?num=${list.num}">${list.name}</a></td>
 							<td>${list.avg}</td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 
-
+			
 
 			<%-- 			<h1>${requestScope.pointList[0].name}</h1> --%>
 		</div>
