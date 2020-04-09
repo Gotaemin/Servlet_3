@@ -38,4 +38,14 @@ public class PointService {
 		return result;
 	}
 	
+	public int pointUpdate(PointDTO pointDTO) throws Exception{
+		pointDTO.setSum(pointDTO.getKor() + pointDTO.getEng() + pointDTO.getMath());
+		pointDTO.setAvg(pointDTO.getSum()/3.0);
+		
+		int result = pointDAO.pointUpdate(pointDTO);
+		
+		return result;
+		
+	}
+	
 }

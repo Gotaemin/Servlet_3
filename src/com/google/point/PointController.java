@@ -86,10 +86,37 @@ public class PointController extends HttpServlet {
 				path = "../WEB-INF/views/point/pointSelect.jsp";
 
 			} else if (command.equals("/pointMod")) {
-				// System.out.println("pointMod");
+				
 				if (method.equals("POST")) {
 					// Service로 이동(DB Update)
+					
+					String name = request.getParameter("name");
+					int num = Integer.parseInt(request.getParameter("num"));
+					int kor = Integer.parseInt(request.getParameter("kor"));
+					int eng = Integer.parseInt(request.getParameter("eng"));
+					int math = Integer.parseInt(request.getParameter("math"));
+					
+					PointDTO pointDTO = new PointDTO();
+					pointDTO.setName(name);
+					pointDTO.setNum(num);
+					pointDTO.setKor(kor);
+					pointDTO.setEng(eng);
+					pointDTO.setMath(math);
+					
+					int result = pointService.pointUpdate(pointDTO);
+					if(result > 0) {
+						check = false;
+						path = "./pointSelect?num="+num;
+					}else {
+						
+					}
+					
+					
 				} else {
+					int num = Integer.parseInt(request.getParameter("num"));
+					PointDTO pointDTO = pointService.pointSelect(num);
+					request.setAttribute("pointSelect", pointDTO);
+					
 					path = "../WEB-INF/views/point/pointMod.jsp";
 				}
 

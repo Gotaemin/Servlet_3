@@ -15,21 +15,17 @@ public class HomeController extends HttpServlet {
        
     public HomeController() {
         super();
-        
     }
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("./WEB-INF/views/index.jsp");
 		dispatcher.forward(request, response);
-		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
-		
 	}
-
 }

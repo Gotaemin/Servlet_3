@@ -74,6 +74,7 @@
 			</table>
 			
 			<a href="./pointDelete?num=${pointSelect.num}" class="btn btn-primary" style="float: right">Delete</a>
+			<a href="./pointMod?num=${pointSelect.num}" class="btn btn-primary" style="float: right">Update</a>
 		</div>
 	</div>
 
