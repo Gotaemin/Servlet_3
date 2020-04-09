@@ -14,6 +14,7 @@
 </head>
 <body>
 
+
 	<!-- 	BootStrapAPI_nav  -------------------------------------------------->
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
@@ -46,56 +47,44 @@
 
 	<div class="container">
 		<div class="jumbotron">
-			<h1>Point Add Form</h1>
+			<h1>Member Add Form</h1>
 			<p>Bootstrap is the most popular HTML, CSS, and JS framework for
 				developing responsive, mobile-first projects on the web.</p>
 		</div>
-		<form class="form-horizontal" action="./pointAdd" method="post">
-		<div class="form-group">
-			<label class="control-label col-sm-2" for="name">name:</label>
-			<div class="col-sm-10">
-				<input type="text" class="form-control" id="name"
-					placeholder="Enter name" name="name">
+		<form class="form-horizontal" action="./memberLogin" method="post">
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="id">id:</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="id"
+						placeholder="Enter id" name="id">
+				</div>
 			</div>
-		</div>
-		<div class="form-group">
-			<label class="control-label col-sm-2" for="num">num:</label>
-			<div class="col-sm-10">
-				<input type="text" class="form-control" id="num"
-					placeholder="Enter num" name="num">
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="pwd">pwd:</label>
+				<div class="col-sm-10">
+					<input type="password" class="form-control" id="pwd"
+						placeholder="Enter pwd" name="pwd">
+				</div>
 			</div>
-		</div>
-		<div class="form-group">
-			<label class="control-label col-sm-2" for="kor">kor:</label>
-			<div class="col-sm-10">
-				<input type="text" class="form-control" id="kor"
-					placeholder="Enter kor" name="kor">
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<div class="checkbox">
+						<label><input type="checkbox" name="remember">
+							Remember me</label>
+					</div>
+				</div>
 			</div>
-		</div>
-		<div class="form-group">
-			<label class="control-label col-sm-2" for="eng">eng:</label>
-			<div class="col-sm-10">
-				<input type="text" class="form-control" id="eng"
-					placeholder="Enter eng" name="eng">
+
+
+
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-default">Submit</button>
+				</div>
 			</div>
-		</div>
-		<div class="form-group">
-			<label class="control-label col-sm-2" for="math">math:</label>
-			<div class="col-sm-10">
-				<input type="text" class="form-control" id="math"
-					placeholder="Enter math" name="math">
-			</div>
-		</div>
-		
-		
-		<div class="form-group">
-			<div class="col-sm-offset-2 col-sm-10">
-				<button type="submit" class="btn btn-default">Submit</button>
-			</div>
-		</div>
-	</form>
+		</form>
 	</div>
 
-	
+
 </body>
 </html>

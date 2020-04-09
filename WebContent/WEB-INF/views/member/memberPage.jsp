@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-	
+    pageEncoding="UTF-8"%>
+    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 
 <!DOCTYPE html>
 <html>
@@ -16,7 +17,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<!-- 	BootStrapAPI_nav  -------------------------------------------------->
+
+<!-- 	BootStrapAPI_nav  -------------------------------------------------->
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -44,7 +46,7 @@
 			
 			
 			<c:if test="${not empty member}">
-				<li><a href="${pageContext.request.contextPath}/member/memberPage?member=${member}"><span class="glyphicon glyphicon-user"></span>
+				<li><a href="${pageContext.request.contextPath}/member/memberPage"><span class="glyphicon glyphicon-user"></span>
 						myPage</a></li>
 				<li><a href="${pageContext.request.contextPath}/member/memberLogout"><span class="glyphicon glyphicon-log-in"></span>
 						Logout</a></li>
@@ -60,12 +62,17 @@
 
 	<div class="container">
 		<div class="jumbotron">
-			<h1>Index page</h1>
+			<h1>Member page</h1>
 			<p>Bootstrap is the most popular HTML, CSS, and JS framework for
 				developing responsive, mobile-first projects on the web.</p>
 		</div>
-		<p>This is some text.</p>
-		<p>This is another text.</p>
+		
+		<h2>아이디 : ${member.id }</h2>
+		<h2>이   름 : ${member.name }</h2>
+		<h2>번   호 : ${member.phone }</h2>
+		<h2>이메일 : ${member.email }</h2>
+		<h2>나   이 : ${member.age }</h2>
+		
 	</div>
 
 	<!-- 	 . -->

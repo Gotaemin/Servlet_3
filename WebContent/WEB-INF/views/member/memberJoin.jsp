@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script
@@ -14,7 +15,8 @@
 </head>
 <body>
 
-	<!-- 	BootStrapAPI_nav  -------------------------------------------------->
+
+<!-- 	BootStrapAPI_nav  -------------------------------------------------->
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -46,11 +48,25 @@
 
 	<div class="container">
 		<div class="jumbotron">
-			<h1>Point Add Form</h1>
+			<h1>Member Add Form</h1>
 			<p>Bootstrap is the most popular HTML, CSS, and JS framework for
 				developing responsive, mobile-first projects on the web.</p>
 		</div>
-		<form class="form-horizontal" action="./pointAdd" method="post">
+		<form class="form-horizontal" action="./memberJoin" method="post">
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="id">id:</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" id="id"
+					placeholder="Enter id" name="id">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="pwd">pwd:</label>
+			<div class="col-sm-10">
+				<input type="password" class="form-control" id="pwd"
+					placeholder="Enter pwd" name="pwd">
+			</div>
+		</div>
 		<div class="form-group">
 			<label class="control-label col-sm-2" for="name">name:</label>
 			<div class="col-sm-10">
@@ -59,31 +75,24 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="control-label col-sm-2" for="num">num:</label>
+			<label class="control-label col-sm-2" for="eng">phone:</label>
 			<div class="col-sm-10">
-				<input type="text" class="form-control" id="num"
-					placeholder="Enter num" name="num">
+				<input type="text" class="form-control" id="phone"
+					placeholder="Enter phone" name="phone">
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="control-label col-sm-2" for="kor">kor:</label>
+			<label class="control-label col-sm-2" for="math">email:</label>
 			<div class="col-sm-10">
-				<input type="text" class="form-control" id="kor"
-					placeholder="Enter kor" name="kor">
+				<input type="email" class="form-control" id="email"
+					placeholder="Enter email" name="email">
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="control-label col-sm-2" for="eng">eng:</label>
+			<label class="control-label col-sm-2" for="math">age:</label>
 			<div class="col-sm-10">
-				<input type="text" class="form-control" id="eng"
-					placeholder="Enter eng" name="eng">
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="control-label col-sm-2" for="math">math:</label>
-			<div class="col-sm-10">
-				<input type="text" class="form-control" id="math"
-					placeholder="Enter math" name="math">
+				<input type="text" class="form-control" id="age"
+					placeholder="Enter age" name="age">
 			</div>
 		</div>
 		
@@ -96,6 +105,5 @@
 	</form>
 	</div>
 
-	
 </body>
 </html>
