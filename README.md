@@ -25,6 +25,4 @@
 - /point/pointDelete	/					/	GET
  
 
- ## 집에서 추가1
- # 
 
