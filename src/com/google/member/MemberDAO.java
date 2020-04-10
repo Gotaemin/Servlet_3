@@ -63,6 +63,44 @@ public class MemberDAO {
 		
 		return memberDTO;
 	}
+	
+	public int memberDelete(String id) throws Exception{
+		Connection conn = DBConnect.getConnection();
+		PreparedStatement pstmt = null;
+		
+		String sql = "delete from member where id =?";
+		
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, id);
+		
+		int result = pstmt.executeUpdate();
+		
+		pstmt.close();
+		conn.close();
+		
+		return result;
+	}
+	
+	public int memberUpdate(MemberDTO memberDTO) throws Exception{
+		Connection conn = DBConnect.getConnection();
+		PreparedStatement pstmt = null;
+		
+		String sql = "update member set name=?,email=?,phone=?,age=? where id = ?";
+		
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, memberDTO.getName());
+		pstmt.setString(2, memberDTO.getEmail());
+		pstmt.setString(3, memberDTO.getPhone());
+		pstmt.setInt(4, memberDTO.getAge());
+		pstmt.setString(5, memberDTO.getId());
+		
+		int result = pstmt.executeUpdate();
+		
+		pstmt.close();
+		conn.close();
+		
+		return result;
+	}
 }
 
 

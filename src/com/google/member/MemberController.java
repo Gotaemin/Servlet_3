@@ -73,7 +73,6 @@ public class MemberController extends HttpServlet {
 					
 					String id = request.getParameter("id");
 					String pwd = request.getParameter("pwd");
-					String remember = request.getParameter("remember");
 					
 					MemberDTO memberDTO =  new MemberDTO();
 					memberDTO.setId(id);
@@ -109,18 +108,81 @@ public class MemberController extends HttpServlet {
 				path = "../";
 			}else if (path.equals("/memberPage")) {
 				
+//				HttpSession session = request.getSession();
+//				MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
+//				
+//				request.setAttribute("member", memberDTO);
+				
+				path = "../WEB-INF/views/member/memberPage.jsp";
+			}else if(path.equals("/memberDelete")) {
+				
 				HttpSession session = request.getSession();
 				MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
 				
-				request.setAttribute("member", memberDTO);
+				String id = memberDTO.getId();
 				
-				path = "../WEB-INF/views/member/memberPage.jsp";
+				int result = memberService.memberDelete(id);
+				
+				String msg = "회원 탈퇴 실패";
+				if(result > 0) {
+					msg = "회원 탈퇴 성공";
+				}
+				
+				request.setAttribute("msg", msg);
+				request.setAttribute("path", "{pageContext.request.contextPath}");
+				//session.removeAttribute("member");
+				session.invalidate();
+				
+				
+				path = "../WEB-INF/views/common/result.jsp";
+			}else if(path.equals("/memberUpdate")) {
+				if(method.equals("POST")) {
+					
+					HttpSession session = request.getSession();
+					MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
+					
+					String name = request.getParameter("name");
+					String email = request.getParameter("email");
+					String phone = request.getParameter("phone");
+					int age = Integer.parseInt(request.getParameter("age"));
+					
+					memberDTO.setName(name);
+					memberDTO.setEmail(email);
+					memberDTO.setPhone(phone);
+					memberDTO.setAge(age);
+					
+					
+					int result = memberService.memberUpdate(memberDTO);
+					
+					String msg = "회원 정보 수정 실패";
+					
+					if(result > 0 ) {
+						 msg = "회원 정보 수정 성공";
+						 
+						 //memberDTO = memberService.memberLogin(memberDTO);
+						 session.setAttribute("member", memberDTO);
+					}
+					
+					request.setAttribute("msg", msg);
+					request.setAttribute("path", "./memberPage");
+					
+					
+					path = "../WEB-INF/views/common/result.jsp";
+					
+					
+					
+				}else {
+					path = "../WEB-INF/views/member/memberUpdate.jsp";
+				}
 			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
+		
+		
+		//forward / redirect
 		if (check) {
 			RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 			dispatcher.forward(request, response);
