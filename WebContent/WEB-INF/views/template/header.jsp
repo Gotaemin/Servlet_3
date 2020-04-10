@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -18,6 +18,7 @@
 						<li><a href="#">Page 1-3</a></li>
 					</ul></li>
 				<li><a href="${pageContext.request.contextPath }/point/pointList">Point</a></li>
+				<li><a href="${pageContext.request.contextPath }/bbs/bbsList">BBS</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 			
