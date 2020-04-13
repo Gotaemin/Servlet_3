@@ -21,13 +21,16 @@ public class BbsController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-		response.setCharacterEncoding("UTF-8");
+//		request.setCharacterEncoding("UTF-8");
+//		response.setCharacterEncoding("UTF-8");
 
 		String command = request.getPathInfo();
 		String method = request.getMethod();
 		String path = "";
 		boolean check = true;
+		
+		getServletConfig(); //현재 Servlet의 객체 저장 - web.xml의 <servlet>의 정보
+		getServletContext(); //전체 정보를 저장하는 객체(=application, context) - web.xml의 전체 정보
 
 //		System.out.println(command);
 //		System.out.println(method);

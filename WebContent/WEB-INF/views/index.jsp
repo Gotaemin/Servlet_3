@@ -28,7 +28,7 @@
 		<p>This is some text.</p>
 		<p>This is another text.</p>
 	</div>
-
+	<% String enc = config.getInitParameter("enc"); %>
 	<!-- 	 . -->
 
 </body>
