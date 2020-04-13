@@ -31,9 +31,10 @@ public class BbsService {
 		
 		BbsDTO bbsDTO = bbsDAO.getBbs(no); 
 		
-//		int count = bbsDTO.getCount()+1;
-//		int result =bbsDAO.bbsUpdate(count,no);
-		
+		int count = bbsDTO.getCount()+1;
+		bbsDAO.countUpdate(count,no);
+
+		bbsDTO.setCount(count);
 		
 		return bbsDTO;
 	}

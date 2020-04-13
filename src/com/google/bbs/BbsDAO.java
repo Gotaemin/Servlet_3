@@ -44,7 +44,7 @@ public class BbsDAO {
 		return result;
 	}
 	
-	public int bbsUpdate(int count,int no) throws Exception{
+	public int countUpdate(int count,int no) throws Exception{
 		Connection conn = DBConnect.getConnection();
 		PreparedStatement pstmt = null;
 		
@@ -52,7 +52,7 @@ public class BbsDAO {
 		
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setInt(1, count);
-		pstmt.setInt(1, no);
+		pstmt.setInt(2, no);
 		
 		int result = pstmt.executeUpdate();
 		
@@ -87,8 +87,6 @@ public class BbsDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
-		
-		System.out.println("db");
 		String sql = "select * from bbs where no = ?";
 		
 		pstmt = conn.prepareStatement(sql);
@@ -109,7 +107,6 @@ public class BbsDAO {
 		pstmt.close();
 		conn.close();
 
-		System.out.println(bbsDTO);
 		return bbsDTO;
 	}
 

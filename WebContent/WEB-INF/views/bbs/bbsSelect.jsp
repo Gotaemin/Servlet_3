@@ -26,7 +26,6 @@
 						<th>title</th>
 						<th>name</th>
 						<th>date</th>
-						<th>count</th>
 						<th>contents</th>
 					</tr>
 				</thead>
@@ -36,7 +35,6 @@
 						<td>${bbsDTO.title}</td>
 						<td>${bbsDTO.name}</td>
 						<td>${bbsDTO.day}</td>
-						<td>${bbsDTO.count}</td>
 						<td>${bbsDTO.contents}</td>
 					</tr>
 				</tbody>

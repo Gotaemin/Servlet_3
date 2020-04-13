@@ -9,7 +9,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 @WebServlet("/BbsController")
 public class BbsController extends HttpServlet {
@@ -30,11 +29,11 @@ public class BbsController extends HttpServlet {
 		String path = "";
 		boolean check = true;
 
-		System.out.println(command);
-		System.out.println(method);
+//		System.out.println(command);
+//		System.out.println(method);
 		try {
 			if (command.equals("/bbsList")) {
-				System.out.println("bbsList");
+//				System.out.println("bbsList");
 
 				// DB Select
 				ArrayList<BbsDTO> bbsList = bbsService.getBbsList();
@@ -44,7 +43,7 @@ public class BbsController extends HttpServlet {
 				path = "../WEB-INF/views/bbs/bbsList.jsp";
 
 			} else if (command.equals("/bbsUpdate")) {
-				System.out.println("bbsUpdate");
+//				System.out.println("bbsUpdate");
 				
 				if (method.equals("POST")) {
 					//DB Update
@@ -68,7 +67,7 @@ public class BbsController extends HttpServlet {
 				}
 
 			} else if (command.equals("/bbsWrite")) {
-				System.out.println("bbsWrite");
+//				System.out.println("bbsWrite");
 				if (method.equals("POST")) {
 					//DB insert 
 					
@@ -93,7 +92,7 @@ public class BbsController extends HttpServlet {
 					path = "../WEB-INF/views/bbs/bbsWrite.jsp";
 				}
 			} else if (command.equals("/bbsSelect")) {
-				System.out.println("bbsSelect");
+//				System.out.println("bbsSelect");
 				//DB select one 
 				int no = Integer.parseInt(request.getParameter("no"));
 				BbsDTO bbsDTO =  bbsService.getBbs(no);
