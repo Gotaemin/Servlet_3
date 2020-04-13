@@ -44,11 +44,29 @@ public class BbsDAO {
 		return result;
 	}
 	
+	public int bbsUpdate(int count,int no) throws Exception{
+		Connection conn = DBConnect.getConnection();
+		PreparedStatement pstmt = null;
+		
+		String sql = "update bbs set count=? where no=?"; 
+		
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setInt(1, count);
+		pstmt.setInt(1, no);
+		
+		int result = pstmt.executeUpdate();
+		
+		pstmt.close();
+		conn.close();
+
+		return result;
+	}
+	
 	public int bbsInsert(BbsDTO bbsDTO) throws Exception{
 		Connection conn = DBConnect.getConnection();
 		PreparedStatement pstmt = null;
 		
-		String sql = "insert into bbs values(seq.nextval,?,?,sysdate,0,?)"; //title,name,contents
+		String sql = "insert into bbs values(seq.nextval,?,?,0,?)"; //title,name,contents
 		
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, bbsDTO.getTitle());
@@ -69,6 +87,8 @@ public class BbsDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
+		
+		System.out.println("db");
 		String sql = "select * from bbs where no = ?";
 		
 		pstmt = conn.prepareStatement(sql);
@@ -83,13 +103,13 @@ public class BbsDAO {
 			bbsDTO.setDay(rs.getDate(4));
 			bbsDTO.setCount(rs.getInt(5));
 			bbsDTO.setContents(rs.getString(6));
-
 		}
 
 		rs.close();
 		pstmt.close();
 		conn.close();
 
+		System.out.println(bbsDTO);
 		return bbsDTO;
 	}
 
@@ -101,7 +121,7 @@ public class BbsDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
-		String sql = "select * from bbs order by day";
+		String sql = "select * from bbs order by day desc";
 
 		pstmt = conn.prepareStatement(sql);
 		rs = pstmt.executeQuery();

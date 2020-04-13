@@ -16,7 +16,10 @@ public class BbsService {
 	
 	
 	public int bbsUpdate(String title,String contents,int no) throws Exception{
-		return bbsDAO.bbsUpdate(title, contents, no);
+		
+		int result = bbsDAO.bbsUpdate(title, contents, no); 
+		
+		return result;
 	}
 	
 	public int bbsInsert(BbsDTO bbsDTO) throws Exception{
@@ -25,7 +28,14 @@ public class BbsService {
 	
 	
 	public BbsDTO getBbs(int no) throws Exception{
-		return bbsDAO.getBbs(no);
+		
+		BbsDTO bbsDTO = bbsDAO.getBbs(no); 
+		
+//		int count = bbsDTO.getCount()+1;
+//		int result =bbsDAO.bbsUpdate(count,no);
+		
+		
+		return bbsDTO;
 	}
 	
 	public ArrayList<BbsDTO> getBbsList() throws Exception{
